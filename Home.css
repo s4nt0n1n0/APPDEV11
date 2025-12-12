@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e91e63;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+    padding: 60px 40px;
+    background-image: url('hero-background.jpg'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Optional: Add an overlay to make text more readable */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+.hero-content,
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.hero-content h2 {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 60px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.hero-content .subtitle {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.hero-content .description {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    font-style: italic;
+    text-align: justify;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 4px solid #333;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-placeholder {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Flower Decorations */
+.flower-decoration {
+    position: absolute;
+    z-index: 4;
+}
+
+.flower-top-right {
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: auto;
+}
+
+.flower-bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: auto;
+}
+
+/* About Me Section */
+.about {
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.about h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.about p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+/* Education Section */
+.education {
+    position: relative;
+    background-image: url('education-background.jpg'); /* Add your education background image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 60px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* Optional: Add overlay for better text readability */
+.education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 1;
+}
+
+.education > * {
+    position: relative;
+    z-index: 2;
+}
+
+.flower-decoration-edu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 2;
+}
+
+.education h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.education-item {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.education-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.education-item .school {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.education-item .year {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.education-item .description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.honors-section {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.education-item .honors {
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 40px;
+    }
+
+    .nav-links {
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .profile-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .flower-top-right {
+        width: 100px;
+    }
+
+    .flower-bottom-left {
+        width: 80px;
+    }
+
+    .about, .education {
+        padding: 30px 25px;
+    }
+
+    .flower-decoration-edu {
+        width: 70px;
+    }
+}

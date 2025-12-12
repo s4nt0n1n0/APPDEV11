@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluforio Miguel - IT Student and Developer</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#journey">IT Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hello, I'm</h1>
+                <h2>Augorio Miguel</h2>
+                <p class="subtitle">IT Student and Developer</p>
+                <p class="description">Passionate about technology and innovation. Currently pursuing my degree in Information Technology while building projects and expanding my skill set.</p>
+            </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <!-- Replace src with your image path -->
+                    <img src="298b044b2a32e79142eb0969ee622fbc.jpg" alt="Augorio Miguel" style="display: none;" id="profileImg">
+                    <div class="profile-placeholder" id="placeholder">Your Photo Here</div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about">
+            <h2>About Me</h2>
+            <p>I'm a second-year Bachelor of Science in Information Technology student at Camarines Norte State College, passionate about creating systems and applications that make an impact. I love building scalable solutions, solving complex problems, and continuously learning new technologies to grow as a developer.</p>
+            <p>I enjoy collaborating with teams, exploring new frameworks, and experimenting with emerging tools to stay ahead in the ever-evolving tech landscape. When I'm not coding, you'll usually find me watching ASMR, crocheting, or—most of the time—sleeping.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education">
+            
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Bachelor of Science in Information Technology</h3>
+                <p class="school">Camarines Norte State College</p>
+                <p class="year">2024 - Present</p>
+                <p class="description">Focused on software development, networks, databases, and web technologies. Relevant coursework: Data Structures, Web Development, Database Systems, Application Development.</p>
+                <div class="honors-section">
+                    <p class="honors">With High Honors — General Academic Strand</p>
+                    <p class="school">Vinzons Pilot High School</p>
+                    <p class="year">2017 - 2023</p>
+                    <p class="description">Completed Senior High School with emphasis on computing and applied mathematics. Participated in coding clubs and tech fairs.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Simple image loader - when you add your image
+        const img = document.getElementById('profileImg');
+        const placeholder = document.getElementById('placeholder');
+        
+        img.onload = function() {
+            img.style.display = 'block';
+            placeholder.style.display = 'none';
+        };
+        
+    </script>
+</body>
+</html>
