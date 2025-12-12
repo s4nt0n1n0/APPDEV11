@@ -3,6 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e91e63;
+}
 
 body {
     font-family: Arial, sans-serif;
