@@ -218,6 +218,127 @@ h2 {
     color: #333;
 }
 
+/* Show Songs Button Styles */
+.show-songs-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff4d6d 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 77, 109, 0.3);
+}
+
+.show-songs-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+}
+
+.show-songs-btn.active {
+    background: linear-gradient(135deg, #666 0%, #444 100%);
+}
+
+/* Song List Styles */
+.song-list {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255, 182, 193, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.song-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.song-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.song-list li:last-child {
+    border-bottom: none;
+}
+
+.song-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s;
+    display: block;
+}
+
+.song-list a:hover {
+    color: #ff4d6d;
+    padding-left: 5px;
+}
+
+/* Simple Songs List Styles */
+.simple-songs-list {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.simple-song-item {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 50px;
+}
+
+.simple-song-item:hover {
+    background: rgba(255, 182, 193, 0.2);
+    transform: translateX(5px);
+}
+
+.simple-song-artist {
+    font-size: 15px;
+    color: #666;
+    font-weight: 500;
+    min-width: 180px;
+}
+
+.simple-song-separator {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.simple-song-title {
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    flex: 1;
+}
+
+.simple-song-title:hover {
+    color: #ff4d6d;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
@@ -227,7 +348,23 @@ h2 {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .simple-songs-list {
+        padding: 0 10px;
+    }
+
+    .simple-song-item {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
     nav {
         gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-song-artist,
+    .simple-song-title {
+        font-size: 13px;
     }
 }

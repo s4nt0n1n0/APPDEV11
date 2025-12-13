@@ -12,9 +12,9 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="Home.html">Home</a></li>
-                <li><a href="Hobbies.html">Hobbies</a></li>
+                <li><a href="Hobbies.html">Hobbies and Interest</a></li>
                 <li><a href="journey">IT Journey</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="Contacts.html">Contact</a></li>
             </ul>
         </nav>
         
@@ -46,47 +46,157 @@
             </div>
         </div>
 
-<div class="section bg-1">
-    <div class="section-content">
-        <h2>Artists & Songs Recommendations</h2>
-        <div class="artists-grid">
+        <div class="section bg-1">
+            <div class="section-content">
+                <h2>Artists & Songs Recommendations</h2>
+                <div class="artists-grid">
 
-            <div class="artist-card">
-                <div class="artist-image">
-                    <img src="599805dcf0527164c67f67f8f11c62e4.jpg" alt="">
-                </div>
-                <div class="artist-name">
-                    <a href="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR" target="_blank">
-                        Ariana Grande
-                    </a>
+                    <div class="artist-card">
+                        <div class="artist-image">
+                            <img src="599805dcf0527164c67f67f8f11c62e4.jpg" alt="">
+                        </div>
+                        <div class="artist-name">
+                            <a href="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR" target="_blank">
+                                Ariana Grande
+                            </a>
+                        </div>
+                        <button class="show-songs-btn" onclick="toggleSongs(this)">Show Songs</button>
+                        <div class="song-list">
+                            <ul>
+                                <li><a href="https://open.spotify.com/track/6ocbgoVGwYJhOv1GgI9NsF" target="_blank">7 rings</a></li>
+                                <li><a href="https://open.spotify.com/track/3e9HZxeyfWwjeyPAMmWSSQ" target="_blank">thank u, next</a></li>
+                                <li><a href="https://open.spotify.com/track/35mvY5S1H3J2QZyna3TFe0" target="_blank">positions</a></li>
+                                <li><a href="https://open.spotify.com/track/4iLqG9SeJSnt0cSPICSjxv" target="_blank">God is a woman</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="artist-image">
+                            <img src="3e9188c39e2a9af133066ef6afa4a9d6.jpg" alt="">
+                        </div>
+                        <div class="artist-name">
+                            <a href="https://open.spotify.com/artist/4iHNK0tOyZPYnBU7nGAgpQ" target="_blank">
+                                Mariah Carey
+                            </a>
+                        </div>
+                        <button class="show-songs-btn" onclick="toggleSongs(this)">Show Songs</button>
+                        <div class="song-list">
+                            <ul>
+                                <li><a href="https://open.spotify.com/track/0bYg9bo50gSsH3LtXe2SQn" target="_blank">All I Want for Christmas Is You</a></li>
+                                <li><a href="https://open.spotify.com/track/5JGEAz15LkPoOtFHttDtVs" target="_blank">We Belong Together</a></li>
+                                <li><a href="https://open.spotify.com/track/2mO8H9sUHSq3CgrRbPwLuY" target="_blank">Hero</a></li>
+                                <li><a href="https://open.spotify.com/track/2tUBqZG2AbRi7Q0BIrVrEj" target="_blank">Fantasy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="artist-image">
+                            <img src="37d80eab1bcf59fa5b04a1b8a9b9b465.jpg" alt="">
+                        </div>
+                        <div class="artist-name">
+                            <a href="https://open.spotify.com/artist/6ykWgwFrokzXBoCS68PEer" target="_blank">
+                                KATSEYE
+                            </a>
+                        </div>
+                        <button class="show-songs-btn" onclick="toggleSongs(this)">Show Songs</button>
+                        <div class="song-list">
+                            <ul>
+                                <li><a href="https://open.spotify.com/track/0mYd9cYlew4t0gxJSGMTf2" target="_blank">Touch</a></li>
+                                <li><a href="https://open.spotify.com/track/4gLe0yවිP4vbTKHQCvYwz" target="_blank">Debut</a></li>
+                                <li><a href="https://open.spotify.com/track/5b8xXvJ7LXEprZgfOqGmHH" target="_blank">Tonight I Might</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="artist-card">
-                <div class="artist-image">
-                    <img src="3e9188c39e2a9af133066ef6afa4a9d6.jpg" alt="">
-                </div>
-                <div class="artist-name">
-                    <a href="https://open.spotify.com/artist/4iHNK0tOyZPYnBU7nGAgpQ" target="_blank">
-                        Mariah Carey
-                    </a>
-                </div>
-            </div>
-
-            <div class="artist-card">
-                <div class="artist-image">
-                    <img src="37d80eab1bcf59fa5b04a1b8a9b9b465.jpg" alt="">
-                </div>
-                <div class="artist-name">
-                    <a href="https://open.spotify.com/" target="_blank">
-                        KATSEYE
-                    </a>
-                </div>
-            </div>
-
         </div>
+
+        <div class="section bg-2">
+            <div class="section-content">
+                <h2>More Song Recommendations</h2>
+                <p class="description" style="margin-bottom: 20px;">
+                    Other songs I love listening to from various artists
+                </p>
+                <div class="simple-songs-list">
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Sabrina Carpenter</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/3n3Ppam7vgaVa1iaRUc9Lp" target="_blank" class="simple-song-title">Espresso</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Lady Gaga, Bruno Mars</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/2plbrEY59IikOBgBGLjaoe" target="_blank" class="simple-song-title">Die With A Smile</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">ROSÉ, Bruno Mars</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/0WbMK4wrZ1wFSty9F7FCgu" target="_blank" class="simple-song-title">APT.</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Teddy Swims</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/5ChkMS8OtdzJeqyybCc9R5" target="_blank" class="simple-song-title">Lose Control</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Pitbull, Ne-Yo</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/2takcwOaAZWiXQijPHIx7B" target="_blank" class="simple-song-title">Time Of Our Lives</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Ed Sheeran</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/7qiZfU4dY1lWllzX7mPBI" target="_blank" class="simple-song-title">Shape of You</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Taylor Swift</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr" target="_blank" class="simple-song-title">Cruel Summer</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">The Weeknd</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" target="_blank" class="simple-song-title">Blinding Lights</a>
+                    </div>
+
+                    <div class="simple-song-item">
+                        <span class="simple-song-artist">Dua Lipa</span>
+                        <span class="simple-song-separator">—</span>
+                        <a href="https://open.spotify.com/track/6WrI0LAC5M1Rw2MnX2ZvEg" target="_blank" class="simple-song-title">Don't Start Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
-<script src="style.js"></script>
+
+    <script>
+        function toggleSongs(button) {
+            const songList = button.nextElementSibling;
+            const isVisible = songList.style.display === 'block';
+            
+            if (isVisible) {
+                songList.style.display = 'none';
+                button.textContent = 'Show Songs';
+                button.classList.remove('active');
+            } else {
+                songList.style.display = 'block';
+                button.textContent = 'Hide Songs';
+                button.classList.add('active');
+            }
+        }
+    </script>
+    <script src="style.js"></script>
 </body>
 </html>
