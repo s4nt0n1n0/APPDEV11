@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="ITJourney.css">
 </head>
 <body>
-<body>
     <div class="container">
+        <!-- Navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Home.html">Home</a></li>
@@ -18,43 +18,24 @@
             </ul>
         </nav>
 
-<h2 class="section-title">Skills</h2>
+        <h2 class="section-title">Skills</h2>
 
-<div class="skills-container">
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
 
-    <!-- Frontend -->
-    <div class="skill-card skill-category">
-        <h3>Frontend Development</h3>
-        <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <p>Java, Firebase, MySQL, Database Design</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <p>Git, VS Code, Figma, Android Studio</p>
+            </div>
         </div>
-    </div>
-
-    <!-- Backend -->
-    <div class="skill-card skill-category">
-        <h3>Backend Development</h3>
-        <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Database Design</span>
-        </div>
-    </div>
-
-    <!-- Tools -->
-    <div class="skill-card skill-category">
-        <h3>Tools & Technologies</h3>
-        <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Android Studio</span>
-        </div>
-    </div>
-
-</div>
 
         <h2 class="section-title">Projects</h2>
         <div class="filter-buttons">
@@ -93,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="project-item individual show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+            <div class="project-item group show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Lost and Found Item</div>
@@ -128,7 +109,7 @@
                     <div>
                         <div class="project-title">Tabeya Website</div>
                     </div>
-                    <div class="project-type group">Group Project</div>
+                    <div class="project-type">Group Project</div>
                 </div>
                 <div class="project-description">
                     A modern and responsive website for Tabeya, featuring an elegant design and user-friendly interface for showcasing services and information.
@@ -143,7 +124,7 @@
                     <div>
                         <div class="project-title">Tabeya Restaurant Management System</div>
                     </div>
-                    <div class="project-type group">Group Project</div>
+                    <div class="project-type">Group Project</div>
                 </div>
                 <div class="project-description">
                     A comprehensive restaurant management system for Tabeya, handling orders, inventory, staff management, and customer data efficiently.
@@ -158,7 +139,7 @@
                     <div>
                         <div class="project-title">Budget Manager</div>
                     </div>
-                    <div class="project-type group">Group Project</div>
+                    <div class="project-type">Group Project</div>
                 </div>
                 <div class="project-description">
                     A collaborative personal finance application for tracking expenses, setting budgets, and generating financial reports with data visualization.
@@ -168,59 +149,110 @@
                 </div>
             </div>
         </div>
+        
+<h2 class="section-title">Journey</h2>
+<div class="journey-item" onclick="toggleJourney(this)">
+    <div class="journey-header">
+        <span>S.Y. 2025</span>
+        <span class="journey-arrow">▼</span>
+    </div>
+    <div class="journey-content">
+        <div class="journey-content-inner">
+            <h3>2nd Year (Present)</h3>
 
-        <h2 class="section-title">Journey</h2>
-        <div class="journey-container">
-            <div class="journey-item" onclick="toggleJourney(this)">
-                <div class="journey-header">
-                    <span>S.Y 2025</span>
-                    <span class="journey-arrow">▼</span>
-                </div>
-                <div class="journey-content">
-                    <div class="journey-content-inner">
-                        <h3>Current Goals & Learning</h3>
-                        <div class="content-highlight">
-                            <strong>Focus Areas:</strong> Advanced full-stack development, cloud architecture, and AI integration
-                        </div>
-                        <p>Continuing to expand expertise in modern web technologies and exploring cutting-edge development practices.</p>
-                    </div>
-                </div>
+            <div class="content-highlight">
+                <strong>Current Focus:</strong> System development, usability & UI/UX design, and application development
             </div>
 
-            <div class="journey-item" onclick="toggleJourney(this)">
-                <div class="journey-header">
-                    <span>S.Y 2024</span>
-                    <span class="journey-arrow">▼</span>
-                </div>
-                <div class="journey-content">
-                    <div class="journey-content-inner">
-                        <h3>Major Milestones</h3>
-                        <div class="content-highlight">
-                            <strong>Achievements:</strong> Completed several full-stack projects, mastered React and Node.js
-                        </div>
-                        <p>Deepened understanding of software architecture and best practices. Built scalable applications and contributed to open source projects.</p>
-                    </div>
-                </div>
-            </div>
+            <p>
+                Second year really hits hard, especially with the heavy workload where every task also requires
+                in-depth studying. Despite the pressure, this year has been the most enjoyable for me so far.
+            </p>
 
-            <div class="journey-item" onclick="toggleJourney(this)">
-                <div class="journey-header">
-                    <span>S.Y 2023</span>
-                    <span class="journey-arrow">▼</span>
-                </div>
-                <div class="journey-content">
-                    <div class="journey-content-inner">
-                        <h3>Foundation Building</h3>
-                        <div class="content-highlight">
-                            <strong>Started:</strong> Web development journey, learned HTML, CSS, JavaScript fundamentals
-                        </div>
-                        <p>Built first projects and discovered passion for creating interactive web applications. Established solid programming fundamentals.</p>
-                    </div>
-                </div>
-            </div>
+            <p>
+                I have come to understand myself better and realized that I genuinely enjoy my course and subjects.
+                I especially enjoy building systems in our Information Management (IM) subject,
+                learning proper usability, interface design, and user experience principles in HCI,
+                and developing applications in App Development.
+            </p>
+
+            <p>
+                Completing our applications has been very fulfilling, and I am grateful that our instructor
+                provided us with proper learning materials, which helped me understand the development process
+                more clearly and effectively.
+            </p>
         </div>
     </div>
+</div>
+         
+            <div class="journey-item" onclick="toggleJourney(this)">
+<div class="journey-header">
+    <span>S.Y. 2024 — CNSC (1st Year)</span>
+    <span class="journey-arrow">▼</span>
+</div>
+<div class="journey-content">
+    <div class="journey-content-inner">
+        <h3>First Year Journey</h3>
 
+        <div class="content-highlight">
+            <strong>Background:</strong> One of the 10 qualified transferees accepted into CNSC
+        </div>
+
+        <p>
+            I was initially unable to pass CNSC when i first took the exam, but I remained determined to study here due to our financial situation.
+            Through perseverance, I became one of the ten qualifiers accepted via transfer.
+        </p>
+
+        <p>
+            Entering CNSC was intimidating. Coming from a small school, I struggled with insecurity, anxiety,
+            and self-doubt during my first semester—especially without a proper laptop.
+            Managing academic workloads was overwhelming, and I often felt inadequate.
+        </p>
+
+        <p>
+            During the second semester, I gradually became more comfortable. Although the lack of proper equipment
+            continued to stress me until midterms, I was finally able to acquire a laptop afterward.
+            With the shift to in-person classes, I completed my tasks more effectively and successfully passed
+            all my major subjects.
+        </p>
+    </div>
+</div>
+
+           
+<div class="journey-item" onclick="toggleJourney(this)">
+    <div class="journey-header">
+        <span>S.Y. 2023</span>
+        <span class="journey-arrow">▼</span>
+    </div>
+    <div class="journey-content">
+        <div class="journey-content-inner">
+            <h3>First Year at ACLC Daet</h3>
+
+            <div class="content-highlight">
+                <strong>Where it all started</strong>
+            </div>
+
+            <p>
+                I built my first projects and discovered my passion for creating interactive systems using
+                C++ and Java. I also created my first static website using only HTML.
+            </p>
+
+            <p>
+                When I first entered ACLC, I was very nervous because I didn’t know what to do.
+                I didn’t have a proper laptop at the time, which made studying difficult due to limited materials.
+                Fortunately, the school had a well-equipped computer laboratory that helped me complete
+                my projects and activities.
+            </p>
+
+            <p>
+                I cried almost every night because I couldn’t pass some activities, and my code would not run
+                because it was full of errors. However, I am grateful for those struggles because they helped
+                me develop a critical and logical mindset in debugging and problem-solving.
+            </p>
+        </div>
+    </div>
+</div>
     <script src="style.js"></script>
+    </script>
 </body>
 </html>

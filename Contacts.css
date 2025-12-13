@@ -30,16 +30,26 @@ nav {
     color: #e91e63;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-    min-height: 100vh;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #666;
 }
 
 
