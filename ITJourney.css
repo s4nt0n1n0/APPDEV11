@@ -4,18 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-}
-
-/* Navigation */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 /* Navigation */
 nav {
     display: flex;
@@ -45,7 +33,11 @@ nav {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
+                url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
@@ -54,7 +46,6 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
 
 .section-title {
     text-align: center;
@@ -93,9 +84,9 @@ body {
 
 .filter-btn {
     padding: 10px 25px;
-    border: 2px solid #6c5ce7;
+    border: 2px solid #e91e63;
     background: white;
-    color: #6c5ce7;
+    color: #e91e63;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
@@ -103,12 +94,12 @@ body {
 }
 
 .filter-btn:hover {
-    background: #6c5ce7;
+    background: #e91e63;
     color: white;
 }
 
 .filter-btn.active {
-    background: #6c5ce7;
+    background: #e91e63;
     color: white;
 }
 
@@ -129,7 +120,7 @@ body {
 
 .project-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
 }
 
 .project-header {
@@ -147,7 +138,7 @@ body {
 }
 
 .project-type {
-    background: #6c5ce7;
+    background: #e91e63;
     color: white;
     padding: 5px 15px;
     border-radius: 15px;
@@ -156,7 +147,7 @@ body {
 }
 
 .project-type.group {
-    background: #00b894;
+    background: #e91e63;
 }
 
 .project-description {
@@ -199,7 +190,7 @@ body {
 }
 
 .journey-header:hover {
-    background: rgba(108, 92, 231, 0.1);
+    background: rgba(233, 30, 99, 0.1);
 }
 
 .journey-arrow {
@@ -228,8 +219,19 @@ body {
 }
 
 .content-highlight {
-    background: rgba(108, 92, 231, 0.1);
+    background: rgba(233, 30, 99, 0.1);
     padding: 10px;
-    border-left: 3px solid #6c5ce7;
+    border-left: 3px solid #e91e63;
     margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
 }
