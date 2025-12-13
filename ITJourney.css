@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* Navigation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e91e63;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    color: #333;
+}
+
+.projects-container {
+    margin-bottom: 60px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #6c5ce7;
+    background: white;
+    color: #6c5ce7;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #6c5ce7;
+    color: white;
+}
+
+.filter-btn.active {
+    background: #6c5ce7;
+    color: white;
+}
+
+.project-item {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.project-item.show {
+    display: block;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.project-type {
+    background: #6c5ce7;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.project-type.group {
+    background: #00b894;
+}
+
+.project-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-tech {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.project-tech strong {
+    color: #333;
+}
+
+.journey-container {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.journey-item {
+    background: rgba(200, 200, 200, 0.4);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.journey-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    user-select: none;
+}
+
+.journey-header:hover {
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.journey-arrow {
+    transition: transform 0.3s ease;
+}
+
+.journey-item.active .journey-arrow {
+    transform: rotate(180deg);
+}
+
+.journey-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.journey-content-inner {
+    padding: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.journey-item.active .journey-content {
+    max-height: 500px;
+}
+
+.content-highlight {
+    background: rgba(108, 92, 231, 0.1);
+    padding: 10px;
+    border-left: 3px solid #6c5ce7;
+    margin: 10px 0;
+}

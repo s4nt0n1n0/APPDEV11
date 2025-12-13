@@ -36,3 +36,25 @@ document.addEventListener("keydown", e => {
         modal.style.display = "none";
     }
 });
+
+function toggleJourney(element) {
+    element.classList.toggle("active");
+}
+
+function filterProjects(type) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-item');
+    
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    projects.forEach(project => {
+        if (type === 'all') {
+            project.classList.add('show');
+        } else if (project.classList.contains(type)) {
+            project.classList.add('show');
+        } else {
+            project.classList.remove('show');
+        }
+    });
+}

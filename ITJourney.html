@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Journey</title>
+    <link rel="stylesheet" href="ITJourney.css">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Hobbies.html">Hobbies and Interest</a></li>
+            <li><a href="ITJourney.html">IT Journey</a></li>
+            <li><a href="Contacts.html">Contact</a></li>
+        </ul>
+    </nav>
+
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">Frontend</div>
+            <div class="skill-card">Backend</div>
+            <div class="skill-card">Tools</div>
+        </div>
+
+        <h2 class="section-title">Projects</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('individual')">Individual</button>
+            <button class="filter-btn" onclick="filterProjects('group')">Group</button>
+        </div>
+        <div class="projects-container">
+            <div class="project-item individual show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">SSS Simulator</div>
+                    </div>
+                    <div class="project-type">Individual Project</div>
+                </div>
+                <div class="project-description">
+                    A comprehensive Social Security System simulator that calculates contributions, benefits, and retirement projections for Filipino workers.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> Java | <strong>Tools:</strong> Swing, MySQL
+                </div>
+            </div>
+
+            <div class="project-item individual show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">File Manager</div>
+                    </div>
+                    <div class="project-type">Individual Project</div>
+                </div>
+                <div class="project-description">
+                    A full-featured file management application with intuitive UI for organizing, searching, and managing files and directories efficiently.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> Java | <strong>Tools:</strong> JavaFX, File I/O
+                </div>
+            </div>
+
+            <div class="project-item individual show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Lost and Found Item</div>
+                    </div>
+                    <div class="project-type">Individual Project</div>
+                </div>
+                <div class="project-description">
+                    A mobile application designed to help students and staff report and track lost items within the school campus, making recovery easier and faster.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> Java | <strong>Tools:</strong> Android Studio, Firebase
+                </div>
+            </div>
+
+            <div class="project-item individual show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Personal Portfolio</div>
+                    </div>
+                    <div class="project-type">Individual Project</div>
+                </div>
+                <div class="project-description">
+                    A responsive portfolio website showcasing my projects, skills, and experience with modern web design principles and clean aesthetics.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> HTML, CSS, JavaScript | <strong>Tools:</strong> Responsive Design
+                </div>
+            </div>
+
+            <div class="project-item group show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Tabeya Website</div>
+                    </div>
+                    <div class="project-type group">Group Project</div>
+                </div>
+                <div class="project-description">
+                    A modern and responsive website for Tabeya, featuring an elegant design and user-friendly interface for showcasing services and information.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> HTML, CSS, JavaScript | <strong>Tools:</strong> Responsive Design
+                </div>
+            </div>
+
+            <div class="project-item group show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Tabeya Restaurant Management System</div>
+                    </div>
+                    <div class="project-type group">Group Project</div>
+                </div>
+                <div class="project-description">
+                    A comprehensive restaurant management system for Tabeya, handling orders, inventory, staff management, and customer data efficiently.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> Java | <strong>Tools:</strong> MySQL
+                </div>
+            </div>
+
+            <div class="project-item group show" onclick="window.open('YOUR_GITHUB_LINK_HERE', '_blank')">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Budget Manager</div>
+                    </div>
+                    <div class="project-type group">Group Project</div>
+                </div>
+                <div class="project-description">
+                    A collaborative personal finance application for tracking expenses, setting budgets, and generating financial reports with data visualization.
+                </div>
+                <div class="project-tech">
+                    <strong>Language:</strong> Java | <strong>Tools:</strong> MySQL, Charts
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">IT Journey</h2>
+        <div class="journey-container">
+            <div class="journey-item" onclick="toggleJourney(this)">
+                <div class="journey-header">
+                    <span>2025</span>
+                    <span class="journey-arrow">▼</span>
+                </div>
+                <div class="journey-content">
+                    <div class="journey-content-inner">
+                        <h3>Current Goals & Learning</h3>
+                        <div class="content-highlight">
+                            <strong>Focus Areas:</strong> Advanced full-stack development, cloud architecture, and AI integration
+                        </div>
+                        <p>Continuing to expand expertise in modern web technologies and exploring cutting-edge development practices.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journey-item" onclick="toggleJourney(this)">
+                <div class="journey-header">
+                    <span>2024</span>
+                    <span class="journey-arrow">▼</span>
+                </div>
+                <div class="journey-content">
+                    <div class="journey-content-inner">
+                        <h3>Major Milestones</h3>
+                        <div class="content-highlight">
+                            <strong>Achievements:</strong> Completed several full-stack projects, mastered React and Node.js
+                        </div>
+                        <p>Deepened understanding of software architecture and best practices. Built scalable applications and contributed to open source projects.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journey-item" onclick="toggleJourney(this)">
+                <div class="journey-header">
+                    <span>2023</span>
+                    <span class="journey-arrow">▼</span>
+                </div>
+                <div class="journey-content">
+                    <div class="journey-content-inner">
+                        <h3>Foundation Building</h3>
+                        <div class="content-highlight">
+                            <strong>Started:</strong> Web development journey, learned HTML, CSS, JavaScript fundamentals
+                        </div>
+                        <p>Built first projects and discovered passion for creating interactive web applications. Established solid programming fundamentals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="style.js"></script>
+</body>
+</html>
