@@ -5,7 +5,6 @@
 }
 
 body {
-
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
                 url('fcfa3fc433e9c12dae24b2db6e346838.jpg');
@@ -14,6 +13,7 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
 }
+
 /* Navigation */
 nav {
     display: flex;
@@ -40,6 +40,7 @@ nav {
 .nav-links a:hover {
     color: #e91e63;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -56,23 +57,6 @@ h1 {
     font-weight: 300;
     margin-bottom: 20px;
 }
-
-nav {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #666;
-}
-
 
 .section-title {
     text-align: center;
@@ -150,7 +134,6 @@ nav a:hover {
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     transition: all 0.3s ease;
     display: none;
 }
@@ -179,7 +162,6 @@ nav a:hover {
 }
 
 .project-type {
-    background: #e91e63;
     color: white;
     padding: 5px 15px;
     border-radius: 15px;
@@ -227,10 +209,19 @@ nav a:hover {
     align-items: center;
     font-weight: 600;
     user-select: none;
+    transition: background 0.3s ease;
 }
 
 .journey-header:hover {
     background: rgba(233, 30, 99, 0.1);
+}
+
+.journey-item.active .journey-header {
+    background: transparent;
+}
+
+.journey-item.active .journey-header:hover {
+    background: transparent;
 }
 
 .journey-arrow {

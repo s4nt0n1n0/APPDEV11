@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Home.html">Home</a></li>
@@ -43,7 +42,9 @@
             <button class="filter-btn" onclick="filterProjects('individual')">Individual</button>
             <button class="filter-btn" onclick="filterProjects('group')">Group</button>
         </div>
+        
         <div class="projects-container">
+            <div class="project-item show" data-type="individual">
                 <div class="project-header">
                     <div>
                         <div class="project-title">SSS Simulator</div>
@@ -58,6 +59,7 @@
                 </div>
             </div>
 
+            <div class="project-item show" data-type="individual">
                 <div class="project-header">
                     <div>
                         <div class="project-title">File Manager</div>
@@ -71,6 +73,8 @@
                     <strong>Language:</strong> Java | <strong>Tools:</strong> VS Studio Code
                 </div>
             </div>
+
+            <div class="project-item show" data-type="group">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Lost and Found Item</div>
@@ -84,6 +88,8 @@
                     <strong>Language:</strong> Java | <strong>Tools:</strong> Android Studio, Firebase
                 </div>
             </div>
+
+            <div class="project-item show" data-type="individual">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Personal Portfolio</div>
@@ -97,6 +103,8 @@
                     <strong>Language:</strong> HTML, CSS, JavaScript | <strong>Tools:</strong> VS Studio Code 
                 </div>
             </div>
+
+            <div class="project-item show" data-type="group">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Tabeya Website</div>
@@ -110,6 +118,8 @@
                     <strong>Language:</strong> HTML, CSS, JavaScript | <strong>Tools:</strong> VS Studio Code
                 </div>
             </div>
+
+            <div class="project-item show" data-type="group">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Tabeya Restaurant Management System</div>
@@ -123,6 +133,8 @@
                     <strong>Language:</strong> Java | <strong>Tools:</strong> MySQL, VB .Net
                 </div>
             </div>
+
+            <div class="project-item show" data-type="group">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Budget Manager</div>
@@ -243,6 +255,44 @@
             </div>
         </div>
     </div>
-    <script src="style.js"></script>
+    
+    <script>
+        function toggleJourney(element) {
+            const wasActive = element.classList.contains('active');
+            
+            // Close all journey items
+            document.querySelectorAll('.journey-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If it wasn't active before, open it
+            if (!wasActive) {
+                element.classList.add('active');
+            }
+        }
+
+        function filterProjects(type) {
+            const projects = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter projects
+            projects.forEach(project => {
+                if (type === 'all') {
+                    project.classList.add('show');
+                } else {
+                    const projectType = project.getAttribute('data-type');
+                    if (projectType === type) {
+                        project.classList.add('show');
+                    } else {
+                        project.classList.remove('show');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
