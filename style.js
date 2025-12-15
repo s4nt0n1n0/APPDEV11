@@ -58,3 +58,63 @@ function filterProjects(type) {
         }
     });
 }
+
+function toggleSongs(button) {
+            const songList = button.nextElementSibling;
+            const isVisible = songList.style.display === 'block';
+
+            if (isVisible) {
+                songList.style.display = 'none';
+                button.textContent = 'Show Songs';
+                button.classList.remove('active');
+            } else {
+                songList.style.display = 'block';
+                button.textContent = 'Hide Songs';
+                button.classList.add('active');
+            }
+        }
+
+        function toggleJourney(element) {
+            const wasActive = element.classList.contains('active');
+
+            // Close all journey items
+            document.querySelectorAll('.journey-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // If it wasn't active before, open it
+            if (!wasActive) {
+                element.classList.add('active');
+            }
+        }
+
+        function filterProjects(type) {
+            const projects = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter projects
+            projects.forEach(project => {
+                if (type === 'all') {
+                    project.classList.add('show');
+                } else {
+                    const projectType = project.getAttribute('data-type');
+                    if (projectType === type) {
+                        project.classList.add('show');
+                    } else {
+                        project.classList.remove('show');
+                    }
+                }
+            });
+        }
+
+        const img = document.getElementById('profileImg');
+        const placeholder = document.getElementById('placeholder');
+
+        img.onload = function () {
+            img.style.display = 'block';
+            placeholder.style.display = 'none';
+        };

@@ -32,11 +32,9 @@
             </div>
             <div class="hero-image">
                 <div class="profile-circle">
-                    <!-- Replace src with your image path -->
-                    <img src="1764683235539.jpg" alt="Augorio Miguel" style="display: none;" id="profileImg">
-                    <div class="profile-placeholder" id="placeholder">Your Photo Here</div>
-                </div>
-            </div>
+                    <img src="1764683235539.jpg" alt="Augorio Miguel" id="profileImg">
+                    <div class="profile-placeholder" id="placeholder" style="display: none;">Your Photo Here</div>
+                    </div>
         </section>
 
         <!-- About Me Section -->
@@ -114,16 +112,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Simple image loader - when you add your image
-        const img = document.getElementById('profileImg');
-        const placeholder = document.getElementById('placeholder');
-
-        img.onload = function () {
-            img.style.display = 'block';
-            placeholder.style.display = 'none';
-        };
 
     </script>
     <script src="style.js"></script>

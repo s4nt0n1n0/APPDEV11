@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Journey</title>
     <link rel="stylesheet" href="ITJourney.css">
-    <link rel="stylesheet" href="footer.css">
 </head>
-
 <body>
     <div class="container">
         <nav>
@@ -22,22 +19,23 @@
 
         <h2 class="section-title">Skills</h2>
 
-        <div class="skills-container">
-            <div class="skill-category">
+        <div class="skills-wrapper">
+            <div class="skill-container">
                 <h3>Frontend Development</h3>
                 <p>HTML, CSS, JavaScript</p>
             </div>
 
-            <div class="skill-category">
+            <div class="skill-container">
                 <h3>Backend Development</h3>
                 <p>Java, Firebase, MySQL, Database Design</p>
             </div>
 
-            <div class="skill-category">
+            <div class="skill-container">
                 <h3>Tools & Technologies</h3>
                 <p>Git, VS Code, Figma, Android Studio</p>
             </div>
         </div>
+
 
         <h2 class="section-title">Projects</h2>
         <div class="filter-buttons">
@@ -318,43 +316,6 @@
         </div>
     </footer>
 
-    <script>
-        function toggleJourney(element) {
-            const wasActive = element.classList.contains('active');
-
-            // Close all journey items
-            document.querySelectorAll('.journey-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // If it wasn't active before, open it
-            if (!wasActive) {
-                element.classList.add('active');
-            }
-        }
-
-        function filterProjects(type) {
-            const projects = document.querySelectorAll('.project-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Filter projects
-            projects.forEach(project => {
-                if (type === 'all') {
-                    project.classList.add('show');
-                } else {
-                    const projectType = project.getAttribute('data-type');
-                    if (projectType === type) {
-                        project.classList.add('show');
-                    } else {
-                        project.classList.remove('show');
-                    }
-                }
-            });
-        }
     </script>
 </body>
 
