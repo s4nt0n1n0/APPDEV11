@@ -1,10 +1,15 @@
 // Toggle Hamburger Menu
-function toggleMenu() {
-    const nav = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
-    nav.classList.toggle('nav-active');
-    burger.classList.toggle('toggle');
-}
+    const nav = document.querySelector('.nav-links');
+
+    if (burger && nav) {
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    }
+});
 
 // Create modal elements dynamically
 const modal = document.createElement("div");
