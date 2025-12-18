@@ -6,13 +6,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
-                url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
+    background: linear-gradient(135deg, rgba(245, 245, 245, 0.20) 0%, rgba(232, 232, 232, 0.20) 100%),
+        url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
-    padding-top: 80px; /* Space for fixed navbar */
+    padding-top: 80px;
+    /* Space for fixed navbar */
 }
 
 /* Navigation */
@@ -27,7 +28,7 @@ nav {
     width: 100%;
     background: #fff;
     z-index: 9999;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -157,7 +158,7 @@ nav {
     border-radius: 15px;
     margin: 0 auto 30px auto;
     max-width: 1200px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .about h2 {
@@ -205,7 +206,7 @@ nav {
     z-index: 1;
 }
 
-.education > * {
+.education>* {
     position: relative;
     z-index: 2;
 }
@@ -255,7 +256,7 @@ nav {
 .honors-section {
     margin-top: 25px;
     padding-top: 25px;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .education-item .honors {
@@ -342,7 +343,8 @@ footer {
         height: 250px;
     }
 
-    .about, .education {
+    .about,
+    .education {
         padding: 30px 25px;
         margin-bottom: 20px;
     }
@@ -353,8 +355,103 @@ footer {
         gap: 15px;
         flex-wrap: wrap;
     }
-    
+
     .nav-links a {
         font-size: 14px;
+    }
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Prevent horizontal scroll from nav movement */
+body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+    /* Adjust body padding for mobile header */
+    body {
+        padding-top: 80px;
+    }
+
+    /* Adjust Navigation for Mobile */
+    nav {
+        justify-content: space-between;
+        /* Space out logo (if exists, or empty) and burger */
+        padding: 0 30px;
+        /* Add padding to sides */
+        height: 8vh;
+        /* Fixed height for nav bar */
+        align-items: center;
+    }
+
+    /* Show Burger */
+    .burger {
+        display: block;
+        z-index: 10001;
+        /* Above nav-links */
+    }
+
+    /* Mobile Nav Links */
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        /* Fill rest of screen */
+        top: 8vh;
+        /* Below nav bar */
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        /* Start from top */
+        padding-top: 60px;
+        /* Space from top */
+        gap: 25px;
+        /* Reduced from 40px */
+        /* Space between items */
+        width: 50%;
+        /* Menu width */
+        transform: translateX(100%);
+        /* Hide off-screen */
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        opacity: 1;
+    }
+
+    /* Active Class for Nav Slide In */
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Burger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 }

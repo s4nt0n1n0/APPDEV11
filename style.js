@@ -1,3 +1,11 @@
+// Toggle Hamburger Menu
+function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    const burger = document.querySelector('.burger');
+    nav.classList.toggle('nav-active');
+    burger.classList.toggle('toggle');
+}
+
 // Create modal elements dynamically
 const modal = document.createElement("div");
 modal.id = "imageModal";
@@ -37,84 +45,69 @@ document.addEventListener("keydown", e => {
     }
 });
 
+// Toggle Songs Accordion
+function toggleSongs(button) {
+    const songList = button.nextElementSibling;
+    const isVisible = songList.style.display === 'block';
+
+    if (isVisible) {
+        songList.style.display = 'none';
+        button.textContent = 'Show Songs';
+        button.classList.remove('active');
+    } else {
+        songList.style.display = 'block';
+        button.textContent = 'Hide Songs';
+        button.classList.add('active');
+    }
+}
+
+// Toggle Journey Accordion (Simple toggle - allows multiple open)
 function toggleJourney(element) {
     element.classList.toggle("active");
 }
 
 function filterProjects(type) {
-    const buttons = document.querySelectorAll('.filter-btn');
     const projects = document.querySelectorAll('.project-item');
-    
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Update active button
+
+    if (typeof event !== 'undefined' && event.target) {
+        event.target.classList.add('active');
+    }
+
+    // Filter projects
     projects.forEach(project => {
         if (type === 'all') {
             project.classList.add('show');
-        } else if (project.classList.contains(type)) {
-            project.classList.add('show');
         } else {
-            project.classList.remove('show');
+            const projectType = project.getAttribute('data-type');
+            if (projectType === type) {
+                project.classList.add('show');
+            } else {
+                project.classList.remove('show');
+            }
         }
     });
 }
 
-function toggleSongs(button) {
-            const songList = button.nextElementSibling;
-            const isVisible = songList.style.display === 'block';
+const img = document.getElementById('profileImg');
+const placeholder = document.getElementById('placeholder');
 
-            if (isVisible) {
-                songList.style.display = 'none';
-                button.textContent = 'Show Songs';
-                button.classList.remove('active');
-            } else {
-                songList.style.display = 'block';
-                button.textContent = 'Hide Songs';
-                button.classList.add('active');
-            }
+if (img && placeholder) {
+    img.onload = function () {
+        img.style.display = 'block';
+        placeholder.style.display = 'none';
+    };
+}
+// Make project items clickable
+// Make project items clickable (Event Delegation)
+document.addEventListener('click', function (e) {
+    const item = e.target.closest('.project-item[data-link]');
+    if (item) {
+        const link = item.getAttribute('data-link');
+        if (link) {
+            window.open(link, '_blank');
         }
-
-        function toggleJourney(element) {
-            const wasActive = element.classList.contains('active');
-
-            // Close all journey items
-            document.querySelectorAll('.journey-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // If it wasn't active before, open it
-            if (!wasActive) {
-                element.classList.add('active');
-            }
-        }
-
-        function filterProjects(type) {
-            const projects = document.querySelectorAll('.project-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Filter projects
-            projects.forEach(project => {
-                if (type === 'all') {
-                    project.classList.add('show');
-                } else {
-                    const projectType = project.getAttribute('data-type');
-                    if (projectType === type) {
-                        project.classList.add('show');
-                    } else {
-                        project.classList.remove('show');
-                    }
-                }
-            });
-        }
-
-        const img = document.getElementById('profileImg');
-        const placeholder = document.getElementById('placeholder');
-
-        img.onload = function () {
-            img.style.display = 'block';
-            placeholder.style.display = 'none';
-        };
+    }
+});

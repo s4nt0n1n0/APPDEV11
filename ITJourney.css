@@ -6,8 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
-                url('fcfa3fc433e9c12dae24b2db6e346838.jpg');
+    background: linear-gradient(135deg, rgba(245, 245, 245, 0.20) 0%, rgba(232, 232, 232, 0.20) 100%),
+        url('fcfa3fc433e9c12dae24b2db6e346838.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -22,18 +22,23 @@ nav {
     padding: 20px 0;
     margin-bottom: 40px;
 
-    position: fixed;   /* make it stay on top */
+    position: fixed;
+    /* make it stay on top */
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;  /* ensures content doesn’t show through */
-    z-index: 9999;     /* stays above everything else */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* optional: subtle shadow */
+    background: #fff;
+    /* ensures content doesn’t show through */
+    z-index: 9999;
+    /* stays above everything else */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* optional: subtle shadow */
 }
 
 /* add spacing so content isn’t hidden behind navbar */
 body {
-    padding-top: 80px; /* adjust based on nav height */
+    padding-top: 80px;
+    /* adjust based on nav height */
 }
 
 .nav-links {
@@ -90,13 +95,13 @@ h1 {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-container:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .skill-container h3 {
@@ -114,6 +119,27 @@ h1 {
     color: #555;
     line-height: 1.8;
     text-align: center;
+}
+/* Clickable project indicator */
+.project-item[data-link] {
+    cursor: pointer;
+    position: relative;
+}
+
+.project-item[data-link]::after {
+    content: '→';
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 1.5rem;
+    color: #e91e63;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-item[data-link]:hover::after {
+    opacity: 1;
+    transform: translateX(5px);
 }
 /* Projects Section */
 .projects-container {
@@ -182,7 +208,7 @@ h1 {
 }
 
 .project-type {
-    color: white;
+    color: #e91e63;
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 0.85rem;
@@ -209,7 +235,7 @@ h1 {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
 }
 
@@ -281,7 +307,8 @@ footer {
     background-color: #ea7199;
     color: #fff;
     padding: 40px 0;
-    margin-top: auto; /* Push to bottom if using flex column layout on body */
+    margin-top: auto;
+    /* Push to bottom if using flex column layout on body */
     width: 100%;
 }
 
@@ -309,7 +336,8 @@ footer {
 }
 
 .social-icon-footer:hover {
-    color: #e91e63; /* Matching the hover color from Home.css */
+    color: #e91e63;
+    /* Matching the hover color from Home.css */
     transform: translateY(-3px);
 }
 
@@ -337,14 +365,111 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
+
     @media (max-width: 480px) {
+        .nav-links {
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+        }
+    }
+
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Prevent horizontal scroll from nav movement */
+body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+    /* Adjust body padding for mobile header */
+    body {
+        padding-top: 80px;
+    }
+
+    /* Adjust Navigation for Mobile */
+    nav {
+        justify-content: space-between;
+        /* Space out logo (if exists, or empty) and burger */
+        padding: 0 30px;
+        /* Add padding to sides */
+        height: 8vh;
+        /* Fixed height for nav bar */
+        align-items: center;
+    }
+
+    /* Show Burger */
+    .burger {
+        display: block;
+        z-index: 10001;
+        /* Above nav-links */
+    }
+
+    /* Mobile Nav Links */
     .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        /* Fill rest of screen */
+        top: 8vh;
+        /* Below nav bar */
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        /* Start from top */
+        padding-top: 60px;
+        /* Space from top */
+        gap: 25px;
+        /* Reduced from 40px */
+        /* Space between items */
+        width: 50%;
+        /* Menu width */
+        transform: translateX(100%);
+        /* Hide off-screen */
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
-    
-    .nav-links a {
-        font-size: 14px;
+
+    .nav-links li {
+        opacity: 0;
+        opacity: 1;
     }
-} 
+
+    /* Active Class for Nav Slide In */
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Burger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
 }
