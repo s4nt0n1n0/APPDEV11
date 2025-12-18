@@ -4,26 +4,30 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
+                url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding-top: 80px; /* Space for fixed navbar */
+}
+
 /* Navigation */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    margin-bottom: 40px;
-
-    position: fixed;   /* make it stay on top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;  /* ensures content doesn’t show through */
-    z-index: 9999;     /* stays above everything else */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* optional: subtle shadow */
-}
-
-/* add spacing so content isn’t hidden behind navbar */
-body {
-    padding-top: 80px; /* adjust based on nav height */
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-links {
@@ -43,71 +47,11 @@ body {
 .nav-links a:hover {
     color: #e91e63;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-header {
-    margin-bottom: 40px;
-}
-
-h1 {
-    color: #999;
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-nav {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #666;
-}
-
-.section {
-    margin-bottom: 60px;
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: relative;
-    overflow: hidden;
-}
-
-.section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 1;
-}
-body {
-
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(245,245,245,0.20) 0%, rgba(232,232,232,0.20) 100%), 
-                url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
 }
 
 /* Hero Section */
@@ -126,7 +70,6 @@ body {
     overflow: hidden;
 }
 
-/* Overlay for better text readability */
 .hero::before {
     content: '';
     position: absolute;
@@ -251,7 +194,6 @@ body {
     overflow: hidden;
 }
 
-/* Overlay for education section */
 .education::before {
     content: '';
     position: absolute;
@@ -322,12 +264,13 @@ body {
     font-weight: 600;
     margin-bottom: 8px;
 }
+
 /* Footer Styles */
 footer {
     background-color: #ea7199;
     color: #fff;
     padding: 40px 0;
-    margin-top: auto; /* Push to bottom if using flex column layout on body */
+    margin-top: auto;
     width: 100%;
 }
 
@@ -355,7 +298,7 @@ footer {
 }
 
 .social-icon-footer:hover {
-    color: #e91e63; /* Matching the hover color from Home.css */
+    color: #e91e63;
     transform: translateY(-3px);
 }
 
@@ -403,8 +346,9 @@ footer {
         padding: 30px 25px;
         margin-bottom: 20px;
     }
+}
 
-    @media (max-width: 480px) {
+@media (max-width: 480px) {
     .nav-links {
         gap: 15px;
         flex-wrap: wrap;
@@ -413,5 +357,4 @@ footer {
     .nav-links a {
         font-size: 14px;
     }
-} 
 }
