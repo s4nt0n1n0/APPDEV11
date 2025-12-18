@@ -322,5 +322,16 @@ footer {
 
     .social-icons {
         justify-content: center;
+    
     }
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+    }
+} 
 }

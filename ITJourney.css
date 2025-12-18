@@ -337,4 +337,14 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
+    @media (max-width: 480px) {
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+    }
+} 
 }
