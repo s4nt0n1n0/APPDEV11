@@ -1,12 +1,43 @@
-// Toggle Hamburger Menu
+// Toggle Hamburger Menu Function (for inline onclick)
+function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    const burger = document.querySelector('.burger');
+    
+    if (nav && burger) {
+        nav.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+    }
+}
+
+// Toggle Hamburger Menu (Event Listener approach)
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
 
     if (burger && nav) {
-        burger.addEventListener('click', () => {
+        // Remove inline onclick and use event listener instead
+        burger.removeAttribute('onclick');
+        
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
             nav.classList.toggle('nav-active');
             burger.classList.toggle('toggle');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !burger.contains(e.target)) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            }
+        });
+
+        // Close menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            });
         });
     }
 });
@@ -32,7 +63,11 @@ document.body.appendChild(modal);
 
 // Open image fullscreen
 document.querySelectorAll("img").forEach(img => {
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (e) => {
+        // Don't open modal for profile images or if clicking on a link
+        if (img.closest('a') || img.closest('.profile-circle')) {
+            return;
+        }
         modalImg.src = img.src;
         modal.style.display = "flex";
     });
@@ -71,15 +106,16 @@ function toggleJourney(element) {
     element.classList.toggle("active");
 }
 
+// Fixed filter function
 function filterProjects(type) {
     const projects = document.querySelectorAll('.project-item');
     const buttons = document.querySelectorAll('.filter-btn');
 
-    // Update active button
-
-    if (typeof event !== 'undefined' && event.target) {
-        event.target.classList.add('active');
-    }
+    // Update active button - remove active from all first
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Add active to clicked button
+    event.target.classList.add('active');
 
     // Filter projects
     projects.forEach(project => {
@@ -96,6 +132,7 @@ function filterProjects(type) {
     });
 }
 
+// Profile image handler
 const img = document.getElementById('profileImg');
 const placeholder = document.getElementById('placeholder');
 
@@ -105,9 +142,14 @@ if (img && placeholder) {
         placeholder.style.display = 'none';
     };
 }
-// Make project items clickable
+
 // Make project items clickable (Event Delegation)
 document.addEventListener('click', function (e) {
+    // Don't trigger if clicking filter buttons
+    if (e.target.classList.contains('filter-btn')) {
+        return;
+    }
+    
     const item = e.target.closest('.project-item[data-link]');
     if (item) {
         const link = item.getAttribute('data-link');
