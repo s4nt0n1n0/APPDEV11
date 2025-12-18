@@ -1,13 +1,8 @@
-// Toggle Hamburger Menu Function (for inline onclick)
-function toggleMenu() {
-    const nav = document.querySelector('.nav-links');
-    const burger = document.querySelector('.burger');
-    
-    if (nav && burger) {
-        nav.classList.toggle('nav-active');
-        burger.classList.toggle('toggle');
-    }
-}
+// Backward compatibility for cached HTML
+window.toggleMenu = function () {
+    // Intentionally empty: The Event Listener handles the toggle.
+    // This function exists to prevent "toggleMenu is not defined" errors on cached pages.
+};
 
 // Toggle Hamburger Menu (Event Listener approach)
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav-links');
 
     if (burger && nav) {
-        // Remove inline onclick and use event listener instead
+        // Ensure no inline onclick interferes
         burger.removeAttribute('onclick');
-        
+
         burger.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent event bubbling
             nav.classList.toggle('nav-active');
@@ -26,9 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !burger.contains(e.target)) {
-                nav.classList.remove('nav-active');
-                burger.classList.remove('toggle');
+            if (nav.classList.contains('nav-active')) {
+                if (!nav.contains(e.target) && !burger.contains(e.target)) {
+                    nav.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                }
             }
         });
 
@@ -113,7 +110,7 @@ function filterProjects(type) {
 
     // Update active button - remove active from all first
     buttons.forEach(btn => btn.classList.remove('active'));
-    
+
     // Add active to clicked button
     event.target.classList.add('active');
 
@@ -149,7 +146,7 @@ document.addEventListener('click', function (e) {
     if (e.target.classList.contains('filter-btn')) {
         return;
     }
-    
+
     const item = e.target.closest('.project-item[data-link]');
     if (item) {
         const link = item.getAttribute('data-link');

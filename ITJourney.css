@@ -120,6 +120,7 @@ h1 {
     line-height: 1.8;
     text-align: center;
 }
+
 /* Clickable project indicator */
 .project-item[data-link] {
     cursor: pointer;
@@ -141,6 +142,7 @@ h1 {
     opacity: 1;
     transform: translateX(5px);
 }
+
 /* Projects Section */
 .projects-container {
     margin-bottom: 80px;
@@ -419,7 +421,8 @@ body {
     /* Show Burger */
     .burger {
         display: block;
-        z-index: 10001;
+        z-index: 20000;
+        /* Max z-index */
         /* Above nav-links */
     }
 
@@ -444,6 +447,8 @@ body {
         /* Space between items */
         width: 50%;
         /* Menu width */
+        z-index: 1000;
+        /* Ensure on top of nav background if needed */
         transform: translateX(100%);
         /* Hide off-screen */
         transition: transform 0.5s ease-in;
