@@ -119,6 +119,28 @@ nav {
     text-align: justify;
 }
 
+.quote-section {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(233, 30, 99, 0.05);
+    border-left: 4px solid #e91e63;
+    border-radius: 4px;
+}
+
+.quote-text {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px !important;
+}
+
+.quote-author {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e91e63;
+    text-align: right;
+}
+
 .hero-image {
     display: flex;
     justify-content: center;

@@ -134,16 +134,150 @@ const img = document.getElementById('profileImg');
 const placeholder = document.getElementById('placeholder');
 
 if (img && placeholder) {
-    img.onload = function () {
+    if (img.complete) {
         img.style.display = 'block';
         placeholder.style.display = 'none';
-    };
+    } else {
+        img.onload = function () {
+            img.style.display = 'block';
+            placeholder.style.display = 'none';
+        };
+    }
 }
+
+// --- API Integrations ---
+
+// 1. GitHub API - Fetch Top Repositories
+async function fetchGitHubRepos() {
+    const container = document.getElementById('github-projects');
+    if (!container) return;
+
+    try {
+        const response = await fetch('https://api.github.com/users/s4nt0n1n0/repos?sort=updated&per_page=3');
+        const repos = await response.json();
+
+        if (repos.length > 0) {
+            container.innerHTML = repos.map(repo => `
+                <div class="project-item show github-repo">
+                    <div class="project-header">
+                        <div class="project-title">${repo.name}</div>
+                        <div class="project-type">GitHub Repo</div>
+                    </div>
+                    <p class="project-description">${repo.description || 'No description provided.'}</p>
+                    <div class="project-tech">
+                        <strong>Language:</strong> ${repo.language || 'Multiple'} | 
+                        <strong>Stars:</strong> ${repo.stargazers_count}
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" class="repo-link">View Repository →</a>
+                </div>
+            `).join('');
+        } else {
+            container.innerHTML = '<p>No repositories found.</p>';
+        }
+    } catch (error) {
+        console.error('GitHub API Error:', error);
+        container.innerHTML = '<p>Failed to load repositories.</p>';
+    }
+}
+
+// 2. Quote API - Fetch Random Inspiration
+async function fetchQuote() {
+    const quoteText = document.querySelector('.quote-text');
+    const quoteAuthor = document.querySelector('.quote-author');
+    if (!quoteText) return;
+
+    try {
+        // Using a public API that doesn't require keys and handles CORS well
+        const response = await fetch('https://api.quotable.io/random?tags=technology,famous-quotes');
+        const data = await response.json();
+
+        if (data.content) {
+            quoteText.textContent = `"${data.content}"`;
+            quoteAuthor.textContent = `— ${data.author}`;
+        }
+    } catch (error) {
+        // Fallback quote if API fails
+        quoteText.textContent = '"The only way to do great work is to love what you do."';
+        quoteAuthor.textContent = "— Steve Jobs";
+    }
+}
+
+// --- Transaction Features ---
+
+// 1. Contact Form Transaction
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('contact-submit');
+        const responseDiv = document.getElementById('form-response');
+
+        // Basic Validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (!name || !email || !message) {
+            responseDiv.textContent = "Please fill in all fields.";
+            responseDiv.className = "form-response error";
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        // Simulation of EmailJS Transaction
+        setTimeout(() => {
+            responseDiv.textContent = "Thank you, " + name + "! Your message has been sent successfully.";
+            responseDiv.className = "form-response success";
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
+        }, 1500);
+    });
+}
+
+// 2. Feedback Form Transaction
+const feedbackForm = document.getElementById('feedback-form');
+if (feedbackForm) {
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('feedback-name').value || "Anonymous";
+        const text = document.getElementById('feedback-text').value;
+        const responseDiv = document.getElementById('feedback-response');
+        const latestFeedback = document.getElementById('latest-feedback');
+
+        if (!text) return;
+
+        // Transaction Simulation: Processing and Displaying
+        responseDiv.textContent = "Processing feedback...";
+
+        setTimeout(() => {
+            responseDiv.textContent = "Success! Thank you for your feedback.";
+            responseDiv.style.color = "#4caf50";
+
+            // Add to "recorded" list
+            const feedbackItem = document.createElement('div');
+            feedbackItem.className = 'content-highlight';
+            feedbackItem.innerHTML = `<strong>${name}:</strong> ${text}`;
+            latestFeedback.prepend(feedbackItem);
+
+            feedbackForm.reset();
+            setTimeout(() => { responseDiv.textContent = ""; }, 3000);
+        }, 1000);
+    });
+}
+
+// Initialize APIs on load
+window.addEventListener('load', () => {
+    fetchGitHubRepos();
+    fetchQuote();
+});
 
 // Make project items clickable (Event Delegation)
 document.addEventListener('click', function (e) {
-    // Don't trigger if clicking filter buttons
-    if (e.target.classList.contains('filter-btn')) {
+    // Don't trigger if clicking filter buttons or repo links
+    if (e.target.classList.contains('filter-btn') || e.target.classList.contains('repo-link')) {
         return;
     }
 
