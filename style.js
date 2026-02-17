@@ -145,77 +145,25 @@ if (img && placeholder) {
     }
 }
 
-// --- API Integrations ---
 
-// 1. GitHub API - Fetch Top Repositories
-async function fetchGitHubRepos() {
-    const container = document.getElementById('github-projects');
-    if (!container) return;
 
-    try {
-        const response = await fetch('https://api.github.com/users/s4nt0n1n0/repos?sort=updated&per_page=3');
-        const repos = await response.json();
 
-        if (repos.length > 0) {
-            container.innerHTML = repos.map(repo => `
-                <div class="project-item show github-repo">
-                    <div class="project-header">
-                        <div class="project-title">${repo.name}</div>
-                        <div class="project-type">GitHub Repo</div>
-                    </div>
-                    <p class="project-description">${repo.description || 'No description provided.'}</p>
-                    <div class="project-tech">
-                        <strong>Language:</strong> ${repo.language || 'Multiple'} | 
-                        <strong>Stars:</strong> ${repo.stargazers_count}
-                    </div>
-                    <a href="${repo.html_url}" target="_blank" class="repo-link">View Repository →</a>
-                </div>
-            `).join('');
-        } else {
-            container.innerHTML = '<p>No repositories found.</p>';
-        }
-    } catch (error) {
-        console.error('GitHub API Error:', error);
-        container.innerHTML = '<p>Failed to load repositories.</p>';
-    }
-}
-
-// 2. Quote API - Fetch Random Inspiration
-async function fetchQuote() {
-    const quoteText = document.querySelector('.quote-text');
-    const quoteAuthor = document.querySelector('.quote-author');
-    if (!quoteText) return;
-
-    try {
-        // Using a public API that doesn't require keys and handles CORS well
-        const response = await fetch('https://api.quotable.io/random?tags=technology,famous-quotes');
-        const data = await response.json();
-
-        if (data.content) {
-            quoteText.textContent = `"${data.content}"`;
-            quoteAuthor.textContent = `— ${data.author}`;
-        }
-    } catch (error) {
-        // Fallback quote if API fails
-        quoteText.textContent = '"The only way to do great work is to love what you do."';
-        quoteAuthor.textContent = "— Steve Jobs";
-    }
-}
 
 // --- Transaction Features ---
 
-// 1. Contact Form Transaction
+// 1. Contact Form Transaction (Formspree AJAX)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = document.getElementById('contact-submit');
         const responseDiv = document.getElementById('form-response');
+        const formData = new FormData(contactForm);
 
         // Basic Validation
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
 
         if (!name || !email || !message) {
             responseDiv.textContent = "Please fill in all fields.";
@@ -226,14 +174,35 @@ if (contactForm) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
 
-        // Simulation of EmailJS Transaction
-        setTimeout(() => {
-            responseDiv.textContent = "Thank you, " + name + "! Your message has been sent successfully.";
-            responseDiv.className = "form-response success";
-            contactForm.reset();
+        try {
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                responseDiv.textContent = "Thank you! Your message has been sent successfully.";
+                responseDiv.className = "form-response success";
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (data.errors) {
+                    responseDiv.textContent = data.errors.map(error => error.message).join(", ");
+                } else {
+                    responseDiv.textContent = "Oops! There was a problem submitting your form.";
+                }
+                responseDiv.className = "form-response error";
+            }
+        } catch (error) {
+            responseDiv.textContent = "Oops! There was a problem submitting your form.";
+            responseDiv.className = "form-response error";
+        } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = "Send Message";
-        }, 1500);
+        }
     });
 }
 
@@ -270,8 +239,7 @@ if (feedbackForm) {
 
 // Initialize APIs on load
 window.addEventListener('load', () => {
-    fetchGitHubRepos();
-    fetchQuote();
+
 });
 
 // Make project items clickable (Event Delegation)
