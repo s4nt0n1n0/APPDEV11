@@ -145,8 +145,60 @@ if (img && placeholder) {
     }
 }
 
+// --- API Integrations ---
 
+// 1. GitHub API - Fetch Top Repositories
+async function fetchGitHubRepos() {
+    const container = document.getElementById('github-projects');
+    if (!container) return;
 
+    try {
+        // Fetch more to ensure we find Sam-AppDev even if not in top 3
+        const response = await fetch('https://api.github.com/users/s4nt0n1n0/repos?sort=updated&per_page=10');
+        let repos = await response.json();
+
+        // Filter out trialworkIM (case-insensitive)
+        repos = repos.filter(repo => repo.name.toLowerCase() !== 'trialworkim');
+
+        // Check if Sam-AppDev is in the list
+        const samAppDevIndex = repos.findIndex(repo => repo.name === 'Sam-AppDev');
+
+        if (samAppDevIndex !== -1) {
+            const samAppDev = repos.splice(samAppDevIndex, 1)[0];
+            // Update description and move to front
+            samAppDev.showCustomDesc = true;
+            samAppDev.customDescription = "Lost and Found - A mobile application project for reporting and recovering lost items.";
+            repos.unshift(samAppDev);
+        }
+
+        // Take top 3 for display
+        const displayRepos = repos.slice(0, 3);
+
+        if (displayRepos.length > 0) {
+            container.innerHTML = displayRepos.map(repo => {
+                const description = repo.showCustomDesc ? repo.customDescription : (repo.description || '');
+                return `
+                <div class="project-item show github-repo">
+                    <div class="project-header">
+                        <div class="project-title">${repo.name}</div>
+                        <div class="project-type"></div>
+                    </div>
+                    <p class="project-description">${description}</p>
+                    <div class="project-tech">
+                        <strong>Language:</strong> ${repo.language || 'Multiple'} | 
+                        <strong>Stars:</strong> ${repo.stargazers_count}
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" class="repo-link">View Repository →</a>
+                </div>
+            `}).join('');
+        } else {
+            container.innerHTML = '<div class="loading-spinner"><p>No repositories found.</p></div>';
+        }
+    } catch (error) {
+        console.error('GitHub API Error:', error);
+        container.innerHTML = '<div class="loading-spinner"><p>Failed to load repositories.</p></div>';
+    }
+}
 
 
 // --- Transaction Features ---
@@ -239,7 +291,7 @@ if (feedbackForm) {
 
 // Initialize APIs on load
 window.addEventListener('load', () => {
-
+    fetchGitHubRepos();
 });
 
 // Make project items clickable (Event Delegation)
