@@ -201,6 +201,7 @@ async function fetchGitHubRepos() {
 }
 
 
+
 // --- Transaction Features ---
 
 // 1. Contact Form Transaction (Formspree AJAX)
@@ -289,9 +290,32 @@ if (feedbackForm) {
     });
 }
 
+// 2. Leaflet Map - Professional Location
+function initMap() {
+    const mapContainer = document.getElementById('map');
+    if (!mapContainer) return;
+
+    // Daet, Camarines Norte coordinates
+    const daetCoords = [14.1128, 122.9553];
+
+    // Initialize map
+    const map = L.map('map').setView(daetCoords, 13);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add Marker
+    L.marker(daetCoords).addTo(map)
+        .bindPopup('<b>My Location</b><br>Daet, Camarines Norte, Philippines')
+        .openPopup();
+}
+
 // Initialize APIs on load
 window.addEventListener('load', () => {
     fetchGitHubRepos();
+    initMap();
 });
 
 // Make project items clickable (Event Delegation)
