@@ -204,19 +204,18 @@ async function fetchGitHubRepos() {
 
 // --- Transaction Features ---
 
-// 1. Contact Form Transaction (Formspree AJAX)
+// 1. Contact Form Transaction (EmailJS)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = document.getElementById('contact-submit');
         const responseDiv = document.getElementById('form-response');
-        const formData = new FormData(contactForm);
 
         // Basic Validation
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+        const name = contactForm.querySelector('#name').value;
+        const email = contactForm.querySelector('#email').value;
+        const message = contactForm.querySelector('#message').value;
 
         if (!name || !email || !message) {
             responseDiv.textContent = "Please fill in all fields.";
@@ -228,28 +227,18 @@ if (contactForm) {
         submitBtn.textContent = "Sending...";
 
         try {
-            const response = await fetch(contactForm.action, {
-                method: contactForm.method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+            // Service ID and Template ID required here
+            const result = await emailjs.sendForm('service_uefdvuq', 'template_j0z1ncc', contactForm);
 
-            if (response.ok) {
+            if (result.status === 200) {
                 responseDiv.textContent = "Thank you! Your message has been sent successfully.";
                 responseDiv.className = "form-response success";
                 contactForm.reset();
             } else {
-                const data = await response.json();
-                if (data.errors) {
-                    responseDiv.textContent = data.errors.map(error => error.message).join(", ");
-                } else {
-                    responseDiv.textContent = "Oops! There was a problem submitting your form.";
-                }
-                responseDiv.className = "form-response error";
+                throw new Error('Failed to send');
             }
         } catch (error) {
+            console.error('EmailJS Error:', error);
             responseDiv.textContent = "Oops! There was a problem submitting your form.";
             responseDiv.className = "form-response error";
         } finally {

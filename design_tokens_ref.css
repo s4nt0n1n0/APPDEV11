@@ -1,0 +1,10 @@
+/* DESIGN TOKENS (Internal Reference) */
+:root {
+    --primary-pink: #e91e63;
+    --soft-pink: #ea7199;
+    --rose-accent: #ff4d6d;
+    --pastel-mist: rgba(255, 182, 193, 0.1);
+    --cute-radius: 20px;
+    --pill-radius: 50px;
+    --soft-shadow: 0 10px 20px rgba(234, 113, 153, 0.15);
+}

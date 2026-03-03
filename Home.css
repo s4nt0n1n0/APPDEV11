@@ -6,14 +6,28 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(245, 245, 245, 0.20) 0%, rgba(232, 232, 232, 0.20) 100%),
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 255, 255, 0.2) 100%),
         url('8c8b445e4c23959f7c0ceb7a45d177e2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
     padding-top: 80px;
-    /* Space for fixed navbar */
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(255, 182, 193, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(255, 182, 193, 0.25) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Navigation */
@@ -67,8 +81,9 @@ nav {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 20px;
+    border-radius: 25px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(234, 113, 153, 0.1);
 }
 
 .hero::before {
@@ -155,12 +170,12 @@ nav {
 
 /* About Me Section */
 .about {
-    background: #fff;
+    background: white;
     padding: 50px 60px;
-    border-radius: 15px;
+    border-radius: 25px;
     margin: 0 auto 30px auto;
     max-width: 1200px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(234, 113, 153, 0.1);
 }
 
 .about h2 {
@@ -180,7 +195,44 @@ nav {
 }
 
 .about p:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.linkedin-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.2);
+}
+
+.linkedin-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+}
+
+/* CTA Button */
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff4d6d 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+    color: white;
 }
 
 /* Education Section */
@@ -191,10 +243,11 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 60px;
-    border-radius: 15px;
+    border-radius: 25px;
     margin: 0 auto 40px auto;
     max-width: 1200px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(234, 113, 153, 0.1);
 }
 
 .education::before {
